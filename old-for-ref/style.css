@@ -1,0 +1,217 @@
+html, body {
+	margin:0;
+	font-family: 'Fira Sans', sans-serif;
+    font-size:12px;
+}
+
+header {
+    position: relative;
+    top:0;
+    left:0;
+    width: 100%;
+}
+
+.header-wrapper {
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.header-wrapper > h1 {
+    font-size: 500%;
+    text-align: center;
+}
+
+.header-wrapper form.searchform {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.header-wrapper input.searchbar {
+    border-radius: 50px;
+    width: 50%;
+    border: 2px solid gray;
+    padding: 10px;
+    text-align: center;
+    font-size: 150%;
+    outline: none;
+}
+
+.header-wrapper input.searchbutton {
+    position: relative;
+    top: 0;
+    right: 50px;
+    padding: 0;
+    height: 50px;
+    width: 50px;
+    border-radius: 50px;
+    border:none;
+    outline: none;
+    background-image: url(/logos/search.png);
+    background-size:25px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+}
+
+.column-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    position: relative;
+    top:0;
+    left: 0;
+    width: 100%;
+}
+
+.column-wrapper > .news-column {
+    flex-grow: 1;
+    max-width: 25%;
+}
+
+.column-wrapper > .news-column > li > a > img {
+    max-width: 100%;
+}
+
+li {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    box-sizing: border-box;
+    list-style-type: none;
+}
+
+
+/* wraps the logo and search bar in a div so it can be centered in the page 
+.header-wrapper {
+	margin:0 auto;
+	width:50%;
+}
+
+/* centers the logo in the header-wrapper div 
+.logo {
+	margin:50px 0 25px 0;
+	text-align:center;
+}
+
+/* styles the input searchbar */
+/*
+input.search-field {
+	width:100%;
+	font-size:18px;
+	outline:none;
+	border:none;
+	text-align:center;
+	color:#242424;
+	padding:10px;
+	border-radius:50px;
+	border:1px solid lightgray;
+}
+
+ styles the button for the search bar 
+input.search-button {
+	background-color:transparent;
+	outline:none;
+	border:none;
+	padding:10px;
+	border-radius:50px;
+	position:relative;
+	float:right;
+	height:47px;
+	width:47px;
+	top:-47px;
+	background-image:url(../logos/search.png);
+	background-size:25px;
+	background-position:center;
+	background-repeat:no-repeat;
+}
+*/
+
+/* styles part of the list element (the news stories) */
+
+/* provides padding for each of the columns */
+#mail, #guardian, #bbc {
+	padding:5px;
+}
+
+/* colours the list element background for the daily mail */
+#mail li {
+	background-color:#000;
+}
+
+/* colours the list element background for the bbc */
+#bbc li {
+	background-color:#900d0c;
+}
+
+/* colours the list element background for the the guardian */
+#guardian li {
+	background-color:#00568e;
+}
+
+/* styles the columns for each news source */
+ul.posts {   
+	padding:0;
+    width: 25%;
+	float:left;
+    box-sizing: border-box;
+	list-style-type:none;
+	margin:0;
+	vertical-align:top;
+	list-style-type:none;
+}
+
+/* styles the links (which are the titles) of each news article */
+a {
+	font-size:14px;
+	font-family:"Fira Sans";
+	color:#242424;
+	text-decoration:none;
+	font-weight:600;
+	color:#FFF;
+}
+
+/* wraps ul elements */
+
+.content-wrapper {
+	overflow:auto;
+	width:100%;
+}
+
+/* allows there to be space between the edges of the article and the link title */
+.a-wrapper {
+	padding:5px;
+}
+
+/* styles the images in each post */
+ul.posts li img 
+{
+    max-width: 100%;
+	border-radius:10px 10px 0 0;
+}
+
+.logo-wrapper {
+    width:100%;
+    padding:0;
+    margin:0;
+    display:inline-block;
+    float:left;
+}
+
+#guardian-logo, #mail-logo, #bbc-logo {
+	width:33%;
+	display:inline-block;
+	text-align:center;
+}
+
+#guardian-logo img {
+	width:100%;
+}
+
+#mail-logo img {
+	width:100%;
+}
+#bbc-logo img {
+	width:100%;
+}
