@@ -95,13 +95,83 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+html, body {
+    background-color: #3ec3ec;
+}
 
+/* header */
 
+.header {
+    display: flex;
+    width: 100vw;
+    height: 200px;
+    justify-content: center;
+    align-items: center;
+}
 
+.header-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 50%;
+    max-width: 800px;
+    justify-content: center;
+    align-items: center;
+}
 
+.header-wrapper .logo img {
+    max-width: 100%;
+}
 
+.header-wrapper .search-form {
+    position: relative;
+    width: 100%;
+}
 
+.search-bar, .search-button {
+    border: none;
+    outline: none;
+}
 
+.header-wrapper .search-form .search-bar {
+    width: 100%;
+    padding: 10px;
+    height: 42px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.header-wrapper .search-form .search-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 42px;
+    width: 42px;
+    
+    background-color: #FFF;
+    background-image: url(/images/search-button.svg);
+    background-size: 15px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* news area // will be trends/hot topics area soon */
+
+.content-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    width: 100vw;
+}
+
+.news-wrapper {
+    width: 20vw;
+    height: 100px;
+}
+
+ul, li {
+    list-style-type: none;
+}
 
 
 
