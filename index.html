@@ -25,12 +25,15 @@
 
                 </div>
 
-                <form class="search-form">
+                <form class="search-form" id="search-form">
 
-                    <input class="search-bar" placeholder="What's in the news today?">
-                    <button class="search-button" type="submit"></button>
+                    <input class="search-bar" id="search-bar" placeholder="What's in the news today?" autofocus>
+                    
+                    <input class="search-button" id="search-button" value="" type="submit">
 
                 </form>
+                
+                
         
             </div>
                 
@@ -38,33 +41,21 @@
         
         <div class="content-wrapper">
         
-            <div class="news-wrapper">
+            <div class="news-wrapper" id="one">
                 
                 1
             
             </div>
             
-            <div class="news-wrapper">
+            <div class="news-wrapper" id="two">
                 
                 2
             
             </div>
             
-            <div class="news-wrapper">
+            <div class="news-wrapper" id="three">
             
                 3
-                
-            </div>
-            
-            <div class="news-wrapper">
-            
-                4
-                
-            </div>
-            
-            <div class="news-wrapper">
-            
-                5
                 
             </div>
         
@@ -72,7 +63,58 @@
         
         <script src="require/js/jquery.js"></script>
         <script src="require/js/main.js"></script>
+        <script src="require/js/webhose.js"></script>
         <script src="require/js/modernizr.min.js"></script>
+        
+        <script>
+            
+            console.log('index script working')
+            
+            var thesearch = document.querySelector('#search-button');
+            var mail = document.querySelector('#one');
+            var bbc = document.querySelector('#two');
+            var guardian = document.querySelector('#three');
+            var express = document.querySelector('#four');
+            var mirror = document.querySelector('#five');
+            
+            thesearch.onclick = function(e) {
+                
+                e.preventDefault()
+                
+                mail.innerHTML = '';
+                bbc.innerHTML = '';
+                guardian.innerHTML = '';
+                express.innerHTML = '';
+            }
+            
+            
+            setTimeout(function()
+            { 
+            var search = document.querySelector('#search-form');
+            
+                search.addEventListener('submit',function(e) 
+                {
+                    e.preventDefault()
+
+                    // let user know that we're searching
+
+                    var query = document.querySelector('#search-bar').value;
+
+                    var titlequery = document.querySelector('#search-bar').value;
+
+                    var mail_URL = key + titlequery + title + query + performance + site_mail + type
+                    var bbc_URL = key + titlequery + title + query + performance + site_bbc + type
+                    var guardian_URL = key + titlequery + title + query + performance + site_guardian + type
+
+                    callWebhose(mail_URL, '#one')
+                    callWebhose(bbc_URL, '#two')
+                    callWebhose(guardian_URL, '#three')
+                    
+                })
+            }, 2000)                          
+                        
+
+        </script>
         
     </body>
 
