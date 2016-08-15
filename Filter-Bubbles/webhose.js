@@ -1,16 +1,17 @@
-//Webhose API 
-
-//https://webhose.io/search?token=ec4e5f81-890c-4ed6-b7ee-ac84249e74e4&format=json&q=(Baby)%20performance_score%3A%3E0&site=dailymail.co.uk&site_type=news
-
-//https://webhose.io/search?token=ec4e5f81-890c-4ed6-b7ee-ac84249e74e4&format=json&q=(Baby)%20performance_score%3A%3E5&site=dailymail.co.uk&site_type=new
-
-//https://webhose.io/search?token=ec4e5f81-890c-4ed6-b7ee-ac84249e74e4&format=json&q=Cameron%20thread.title%3A(Cameron)%20performance_score%3A%3E5&site=bbc.com&site_type=news
+// webhose api
 
 console.log("WebHose is all good")
 
-var key = 'https://webhose.io/search?token=ec4e5f81-890c-4ed6-b7ee-ac84249e74e4&format=json&q='
+var key = 'https://webhose.io/search?token=32083bb7-13bf-40c4-a810-5e5c518f259d&format=json&q='
 
 var performance = ')%20performance_score%3A%3E0'
+
+var type = '&site_type=news'
+
+var title = '%20thread.title%3A('
+
+// array for sites
+ 
 
 var site_mail = '&site=dailymail.co.uk'
 
@@ -18,9 +19,22 @@ var site_bbc = '&site=bbc.co.uk'
 
 var site_guardian = '&site=theguardian.com'
 
-var type = '&site_type=news'
+var site_sun = '&site=thesun.co.uk'
 
-var title = '%20thread.title%3A('
+var site_times = '&site=thetimes.co.uk'
+
+var site_telegraph = '&site=telegraph.co.uk'
+
+var site_mirror = '&site=mirror.co.uk'
+
+var site_express = '&site=express.co.uk'
+
+var site_independent = '&site=independent.co.uk'
+
+var site_inews = '&site=inews.co.uk'
+
+
+
 
 //var recent = 'Osborne'
 

@@ -5,7 +5,7 @@
         <link href="css/normalize.css" rel="stylesheet">
 		<link href="css/style.css" rel="stylesheet">
         
-        <link href='https://fonts.googleapis.com/css?family=Fira+Sans:400,700italic,700,500italic,500,400italic,300italic,300' rel='stylesheet' type='text/css'>
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         
 	</head>
 	<body>
@@ -43,7 +43,35 @@
             </div>
             
             <div class="posts" id="mail">
+                
+            </div>
             
+            <div class="posts" id="express">
+                
+            </div>
+            
+            <div class="posts" id="sun">
+                
+            </div>
+            
+            <div class="posts" id="telegraph">
+                
+            </div>
+            
+            <div class="posts" id="mirror">
+                
+            </div>
+            
+            <div class="posts" id="times">
+                
+            </div>
+            
+            <div class="posts" id="independent">
+                
+            </div>
+            
+            <div class="posts" id="inews">
+                
             </div>
             
         </div>
@@ -83,11 +111,38 @@
 		
 		<script>
             
-            $("#search-button").click(function() {
-                $("#mail").empty();
-                $("#bbc").empty();
-                $("#guardian").empty();
-            })
+            var thesearch = document.querySelector('#search-button');
+            var theposrs = document.querySelectorAll('.posts');
+            var mail = document.querySelector('#mail');
+            var bbc = document.querySelector('#bbc');
+            var express = document.querySelector('#express');
+            var sun = document.querySelector('#sun');
+            var mirror = document.querySelector('#mirror');
+            var telegraph = document.querySelector('#telegraph');
+            var times = document.querySelector('#times');
+            var independent = document.querySelector('#independent');
+            var inews = document.querySelector('#inews');
+            
+            thesearch.onclick = function(e) {
+                
+                mail.innerHTML = '';
+                bbc.innerHTML = '';
+                guardian.innerHTML = '';
+                express.innerHTML = '';
+                sun.innerHTML = '';
+                mirror.innerHTML = '';
+                telegraph.innerHTML = '';
+                mirror.innerHTML = '';
+                times.innerHTML = '';
+                independent.innerHTML = '';
+                inews.innerHTML = '';
+            }
+                  
+//            $("#search-button").click(function() {
+//                $("#mail").empty();
+//                $("#bbc").empty();
+//                $("#guardian").empty();
+//            })
             
             setTimeout(function()
             { 
@@ -106,11 +161,24 @@
                     var mail_URL = key + titlequery + title + query + performance + site_mail + type
                     var bbc_URL = key + titlequery + title + query + performance + site_bbc + type
                     var guardian_URL = key + titlequery + title + query + performance + site_guardian + type
+                    var express_URL = key + titlequery + title + query + performance + site_express + type
+                    var telegraph_URL = key + titlequery + title + query + performance + site_telegraph + type
+                    var times_URL = key + titlequery + title + query + performance + site_times + type
+                    var mirror_URL = key + titlequery + title + query + performance + site_mirror + type
+                    var sun_URL = key + titlequery + title + query + performance + site_sun + type
+                    var independent_URL = key + titlequery + title + query + performance + site_independent + type
+                    var inews_URL = key + titlequery + title + query + performance + site_inews + type
 
                     callWebhose(mail_URL, '#mail')
                     callWebhose(bbc_URL, '#bbc')
                     callWebhose(guardian_URL, '#guardian')
-
+                    callWebhose(express_URL, '#express')
+                    callWebhose(telegraph_URL, '#telegraph')
+                    callWebhose(times_URL, '#times')
+                    callWebhose(mirror_URL, '#mirror')
+                    callWebhose(sun_URL, '#sun')
+                    callWebhose(independent_URL, '#independent')
+                    callWebhose(inews_URL, '#inews')
                     //console.log(URL)
 
                 })
