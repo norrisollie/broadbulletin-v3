@@ -77,6 +77,17 @@
         </div>
         
         
+<!--
+        <div class="article-wrapper">
+        
+            <div class="article">
+        
+                stuff goes here
+        
+            </div>
+            
+        </div>
+-->
         
         
         
@@ -111,8 +122,10 @@
 		
 		<script>
             
+            
+            
             var thesearch = document.querySelector('#search-button');
-            var theposrs = document.querySelectorAll('.posts');
+            var thepotrs = document.querySelectorAll('.posts');
             var mail = document.querySelector('#mail');
             var bbc = document.querySelector('#bbc');
             var express = document.querySelector('#express');
@@ -144,45 +157,25 @@
 //                $("#guardian").empty();
 //            })
             
-            setTimeout(function()
-            { 
-            var search = document.getElementById('newsearch');
+                  setTimeout(function()
+      { 
+        var search = document.getElementById('newsearch')
+    
+        search.addEventListener('submit',function(e) 
+        {
+          e.preventDefault()
+          // let user know that we're searching
+          var query = document.getElementById('search').value
+          // loop through all the sites
+          sites.forEach(function (site)
+          {
+            var webhoseURL = getWebhoseURL(query, site)
+            var containerID =  '#guardian' // , '#mail', '#bbc', '#express', '#sun', '#mirror', '#telegraph', '#times', '#independent', '#inews'];
+            getWebhoseData(webhoseURL, containerID)
+          })
+        })
+      }, 2000)  
             
-                search.addEventListener('submit',function(e) 
-                {
-                    e.preventDefault()
-
-                    // let user know that we're searching
-
-                    var query = document.getElementById('search').value;
-
-                    var titlequery = document.getElementById('search').value;
-
-                    var mail_URL = key + titlequery + title + query + performance + site_mail + type
-                    var bbc_URL = key + titlequery + title + query + performance + site_bbc + type
-                    var guardian_URL = key + titlequery + title + query + performance + site_guardian + type
-                    var express_URL = key + titlequery + title + query + performance + site_express + type
-                    var telegraph_URL = key + titlequery + title + query + performance + site_telegraph + type
-                    var times_URL = key + titlequery + title + query + performance + site_times + type
-                    var mirror_URL = key + titlequery + title + query + performance + site_mirror + type
-                    var sun_URL = key + titlequery + title + query + performance + site_sun + type
-                    var independent_URL = key + titlequery + title + query + performance + site_independent + type
-                    var inews_URL = key + titlequery + title + query + performance + site_inews + type
-
-                    callWebhose(mail_URL, '#mail')
-                    callWebhose(bbc_URL, '#bbc')
-                    callWebhose(guardian_URL, '#guardian')
-                    callWebhose(express_URL, '#express')
-                    callWebhose(telegraph_URL, '#telegraph')
-                    callWebhose(times_URL, '#times')
-                    callWebhose(mirror_URL, '#mirror')
-                    callWebhose(sun_URL, '#sun')
-                    callWebhose(independent_URL, '#independent')
-                    callWebhose(inews_URL, '#inews')
-                    //console.log(URL)
-
-                })
-            }, 2000)                          
 
         </script>
         
