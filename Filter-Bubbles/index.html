@@ -136,19 +136,27 @@
             var independent = document.querySelector('#independent');
             var inews = document.querySelector('#inews');
             
+            // Select all divs at once
+            var containers = document.querySelectorAll('.posts');
+            
+            
             thesearch.onclick = function(e) {
+                for (var i = 0; i < containers.length; i++) {
+                    // Do stuff for each div
+                    containers[i].innerHTML = '';
+                }
                 
-                mail.innerHTML = '';
-                bbc.innerHTML = '';
-                guardian.innerHTML = '';
-                express.innerHTML = '';
-                sun.innerHTML = '';
-                mirror.innerHTML = '';
-                telegraph.innerHTML = '';
-                mirror.innerHTML = '';
-                times.innerHTML = '';
-                independent.innerHTML = '';
-                inews.innerHTML = '';
+//                mail.innerHTML = '';
+//                bbc.innerHTML = '';
+//                guardian.innerHTML = '';
+//                express.innerHTML = '';
+//                sun.innerHTML = '';
+//                mirror.innerHTML = '';
+//                telegraph.innerHTML = '';
+//                mirror.innerHTML = '';
+//                times.innerHTML = '';
+//                independent.innerHTML = '';
+//                inews.innerHTML = '';
             }
                   
 //            $("#search-button").click(function() {
@@ -167,12 +175,32 @@
           // let user know that we're searching
           var query = document.getElementById('search').value
           // loop through all the sites
-          sites.forEach(function (site)
-          {
-            var webhoseURL = getWebhoseURL(query, site)
-            var containerID =  '#guardian' // , '#mail', '#bbc', '#express', '#sun', '#mirror', '#telegraph', '#times', '#independent', '#inews'];
-            getWebhoseData(webhoseURL, containerID)
-          })
+          
+          // Loop over the 'sites' array
+//          sites.forEach(function (site)
+//          {
+//            var webhoseURL = getWebhoseURL(query, site)
+//            var containerID =  '#guardian' // , '#mail', '#bbc', '#express', '#sun', '#mirror', '#telegraph', '#times', '#independent', '#inews'];
+//            getWebhoseData(webhoseURL, containerID)
+//          })
+          
+          // Loop over the 'SitesObj' object - CHECK
+          for (var key in sitesObj) {
+              
+              // In JS, when you loop over an object you want to check that the KEY atualy exists
+              if (sitesObj.hasOwnProperty(key)) {  
+                var webhoseURL = getWebhoseURL(query, sitesObj[key])
+                
+                // We concatenate the key to the has - CHECK
+                // var containerID =  '#' + key;
+                var containerID = key;
+                getWebhoseData(webhoseURL, containerID)
+              }
+          }
+            
+            // Check LOOP AND ITERATIONS
+          
+          
         })
       }, 2000)  
             

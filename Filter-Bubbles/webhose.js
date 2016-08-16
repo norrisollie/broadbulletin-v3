@@ -31,24 +31,42 @@ var title = '%20thread.title%3A('
 //
 //var site_inews = '&site=inews.co.uk'
 
+
+// This is an array - CHECK
 var sites = 
 [
-  'dailymail.co.uk',
-  'bbc.co.uk',
-  'mirror.co.uk',
-  'theguardian.com',
-  'independent.co.uk',
-  'express.co.uk',
+    'dailymail.co.uk',
+    'bbc.co.uk',
+    'mirror.co.uk',
+    'theguardian.com',
+    'independent.co.uk',
+    'express.co.uk',
     'inews.co.uk',
     'telegraph.co.uk',
-    'thesun.co.uk',
-]
+    'thesun.co.uk'
+];
+
+
+// This is a object or hash or dictionnary - CHECK
+var sitesObj = {
+    dailymail: 'dailymail.co.uk',
+    bbc: 'bbc.co.uk',
+    mirror: 'mirror.co.uk',
+    guardian: 'theguardian.com',
+    independent: 'independent.co.uk',
+    express: 'express.co.uk',
+    inews: 'inews.co.uk',
+    telegraph: 'telegraph.co.uk',
+    sun: 'thesun.co.uk'
+};
 
 function getWebhoseData(webhoseURL, containerID)
 {
   console.log('getWebhoseData', webhoseURL)
 
-    var ul = $(containerID)
+    //var ul = $(containerID)
+    var ul = document.getElementById(containerID);
+    console.log(containerID, ul);
     
     $.ajax(
     {
@@ -64,6 +82,8 @@ function getWebhoseData(webhoseURL, containerID)
 
             var total = posts.length
             var counter = 0
+            
+            // Check while, for
             while (counter < total) 
             {
 
@@ -73,40 +93,59 @@ function getWebhoseData(webhoseURL, containerID)
 
                 console.log(post)
                 
+                var theSite = (post.thread.site);
                 
+                var splitSite = theSite.split('.')[0];
                 
-                var title = (post.title);
-                
-                console.log("Original Title:" + post.title)
-                
-                var splitTitle = title.split('|' '\\\ - ')[0];
-//                var splitTitle = title.split(' - ')[0];
-//                splitTitle = title.split('– B')[0];
-//                splitTitle = title.split('– T')[0];
-                
-                console.log("Split Title:" + splitTitle);
-                
-//                console.log("title: " + title)
-//                console.log("splitTitle: " + splitTitle);
-//                console.log("splitTitleBBC: " + splitTitleBBCSport);
-//                console.log("splitTitleMirror: " + splitTitleMirror);
-                
-//                console.log(trimTitle)
-                
-//                console.log(post.url)
-
-//                console.log(post.thread.main_image)
                 
                 //The List structure for the pulled content
                 
                 var li = '<li>'
-                    + '<a href="' + post.url + '">' + '<img src="' + post.thread.main_image + '">'
-                    + '<div class="a-wrapper"><a href="' + post.url + '">' + splitTitle +'</a></div>'
+                    + '<a href="' + post.url + '">' + '<img src="' + post.thread.main_image + '"></a>'
+                    + '<div class="a-wrapper"><a href="' + post.url + '">' + post.title +'</a></div>'
                     + '</li>'
                 
-                //shows the list with content
+                // ul.innerHTML = ul,innerHTML + li;
+                ul.innerHTML += li;
                 
-                ul.append(li)
+                
+                // LESS CLEAR
+                // First we have a list item
+//                var li = document.createElement('li');
+//                
+//                // That item has an image link
+//                
+//                // 1st create the link
+//                var link = document.createElement('a');
+//                // Set its href
+//                link.href = post.url;
+//                // Then append an image to it
+//                var img = document.createElement('img');
+//                img.src = post.thread.main_image;
+//                
+//                // Append the img to the link
+//                link.appendChild(img);
+//                
+//                // That item also has a wrapper div which contains a link
+//                var div = document.createElement('div');
+//                div.classList.add('a-wrapper');
+//                
+//                var divLink = document.createElement('a');
+//                divLink.href = post.url;
+//                divLink.textContent = post.title;
+//                
+//                div.appendChild(divLink);
+//                
+//                // Append the link to the li
+//                li.appendChild(link);
+//                li.appendChild(div);
+//                
+//                
+//                //shows the list with content
+//                
+//                // Lastly, append the list item to the UL
+//                ul.appendChild(li);
+
 
                 //increment counter by 1
                 //counter = counter + 1
@@ -141,3 +180,14 @@ function getWebhoseURL(query, site)
 
   return webhoseURL   
 }
+
+//function getContainer(theContainer)
+//{
+//    var theSite = (post.thread.site);
+//    var splitSite = thesite.split('.')[0];
+//    var theContainer = splitSite
+//        
+//        console.log("containerID: " + theContainer);
+//
+//  return theContainer   
+//}
