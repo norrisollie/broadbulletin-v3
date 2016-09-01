@@ -159,7 +159,7 @@ function getWebhoseData(webhoseURL, containerID)
 
 function getWebhoseURL(query, site)
 {
-  var token = '5c8727f8-e049-4cb4-b308-46970606ad5c'
+  var token = '32083bb7-13bf-40c4-a810-5e5c518f259d'
   var performance_score = 0 // 0 - 10 (10 being super-viral)
   var language = 'english'
   var site_type = 'news'
